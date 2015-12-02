@@ -1,0 +1,66 @@
+
+ (read) : (Reserved Word)
+
+ (x) : (Identifier)
+
+ (;) : (Special Symbol)
+
+ (if) : (Reserved Word)
+
+ (0) : (number)
+
+ (<) : (Special Symbol)
+
+ (x) : (Identifier)
+
+ (then) : (Reserved Word)
+
+ (fact) : (Identifier)
+
+ (:=) : (Special Symbol)
+
+ (1) : (number)
+
+ (;) : (Special Symbol)
+
+ (repeat) : (Reserved Word)
+
+ (fact) : (Identifier)
+
+ (:=) : (Special Symbol)
+
+ (fact) : (Identifier)
+
+ (*) : (Special Symbol)
+
+ (x) : (Identifier)
+
+ (;) : (Special Symbol)
+
+ (x) : (Identifier)
+
+ (:=) : (Special Symbol)
+
+ (x) : (Identifier)
+
+ (-) : (Special Symbol)
+
+ (1) : (number)
+
+ (;) : (Special Symbol)
+
+ (until) : (Reserved Word)
+
+ (x) : (Identifier)
+
+ (=) : (Special Symbol)
+
+ (0) : (number)
+
+ (;) : (Special Symbol)
+
+ (write) : (Reserved Word)
+
+ (fact) : (Identifier)
+
+ (end) : (Reserved Word)

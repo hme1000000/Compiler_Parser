@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Compiler_Scanner", "Compiler_Scanner\Compiler_Scanner.vcxproj", "{14F5F7F0-253B-4496-9EE7-5BA8B75FB19E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14F5F7F0-253B-4496-9EE7-5BA8B75FB19E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{14F5F7F0-253B-4496-9EE7-5BA8B75FB19E}.Debug|Win32.Build.0 = Debug|Win32
+		{14F5F7F0-253B-4496-9EE7-5BA8B75FB19E}.Release|Win32.ActiveCfg = Release|Win32
+		{14F5F7F0-253B-4496-9EE7-5BA8B75FB19E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

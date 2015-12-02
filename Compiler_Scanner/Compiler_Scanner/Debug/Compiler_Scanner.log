@@ -1,0 +1,20 @@
+﻿Build started 12/1/2015 11:21:00 AM.
+     1>Project "C:\Users\Hussein\Documents\Visual Studio 2010\Projects\Compiler_Scanner\Compiler_Scanner\Compiler_Scanner.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\Compiler_Scanner.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Hussein\Documents\Visual Studio 2010\Projects\Compiler_Scanner\Debug\Compiler_Scanner.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Compiler_Scanner.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Hussein\Documents\Visual Studio 2010\Projects\Compiler_Scanner\Debug\Compiler_Scanner.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Hussein\Documents\Visual Studio 2010\Projects\Compiler_Scanner\Debug\Compiler_Scanner.lib" /MACHINE:X86 Debug\scannerCode.obj
+     1>scannerCode.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         Compiler_Scanner.vcxproj -> C:\Users\Hussein\Documents\Visual Studio 2010\Projects\Compiler_Scanner\Debug\Compiler_Scanner.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Hussein\Documents\Visual Studio 2010\Projects\Compiler_Scanner\Debug\Compiler_Scanner.exe;#1" /manifest Debug\Compiler_Scanner.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\Compiler_Scanner.unsuccessfulbuild".
+         Touching "Debug\Compiler_Scanner.lastbuildstate".
+     1>Done Building Project "C:\Users\Hussein\Documents\Visual Studio 2010\Projects\Compiler_Scanner\Compiler_Scanner\Compiler_Scanner.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.57
