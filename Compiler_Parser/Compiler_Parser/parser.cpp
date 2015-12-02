@@ -104,6 +104,20 @@ void assign_stmt(string &token)
 	cout<<endl<<"Assignment Statement found"<<endl;
 }
 ///////////////////////////////////////////////////////////////
+void read_stmt(string &token)
+{
+	match(token,"read");
+	match(token,"identifier");
+	cout<<endl<<"Read Statement found"<<endl;
+}
+///////////////////////////////////////////////////////////////
+void write_stmt(string &token)
+{
+	match(token,"write");
+	exp(token);
+	cout<<endl<<"Write Statement found"<<endl;
+}
+//////////////////////////////////////////////////////////////
 
 void main()
 {
