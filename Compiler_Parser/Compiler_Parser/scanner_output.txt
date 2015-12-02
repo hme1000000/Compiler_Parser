@@ -1,0 +1,16 @@
+
+Read Statement found
+
+Assignment Statement found
+
+Assignment Statement found
+
+Assignment Statement found
+
+repeat Statement found
+
+Write Statement found
+
+If Statement found
+
+Program found

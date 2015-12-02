@@ -1,10 +1,24 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <cstdio>
 using namespace std;
 
-void program(string token);
-void stmt_sequence(string token);
-void statement(string token);
+void program(string &token);
+void stmt_sequence(string &token);
+void statement(string &token);
+void if_stmt(string &token);
+void repeat_stmt(string &token);
+void assign_stmt(string &token);
+void read_stmt(string &token);
+void write_stmt(string &token);
+void exp(string &token);
+void comparison_op(string &token);
+void simple_exp(string &token);
+void addop(string &token);
+void term(string &token);
+void mulop(string &token);
+void factor(string &token);
 ////////////////////////////////////////////////////////////
 void error()
 {
@@ -14,11 +28,13 @@ void error()
 //////////////////////////////////////////////////////////
 void match(string &token,string expected)
 {
-	//if(token.substr(0,expected.size()) ==(expected))
-	if(token.compare(expected))
+	if(token.substr(0,expected.size()) ==(expected))
 	{
-		token = token.substr(expected.size(),token.size()-expected.size());
-		cout<<endl<<expected<<" found"<<endl;
+		if(token.size()>expected.size())
+		{
+			token = token.substr(expected.size(),token.size()-expected.size());
+		}
+		//cout<<endl<<expected<<" found"<<endl;
 	}
 	else
 	{
@@ -35,33 +51,33 @@ void program(string &token)
 void stmt_sequence(string &token)
 {
 	statement(token);
-	while(token.compare(";"))
+	while(token.substr(0,1)==(";"))
 	{
 		match(token,";");
 		statement(token);		
 	}
-	cout<<endl<<"Statement Sequence found"<<endl;
+	//cout<<endl<<"Statement Sequence found"<<endl;
 }
 /////////////////////////////////////////////////////////
 void statement(string &token)
 {
-	if(token.compare("if"))
+	if(token.substr(0,2) ==("if"))
 	{
 		if_stmt(token);
 	}
-	else if(token.compare("repeat"))
+	else if(token.substr(0,6) ==("repeat"))
 	{
 		repeat_stmt(token);
 	}
-	else if(token.compare("identifier"))
+	else if(token.substr(0,10) ==("identifier"))
 	{
 		assign_stmt(token);
 	}
-	else if(token.compare("read"))
+	else if(token.substr(0,4) ==("read"))
 	{
 		read_stmt(token);
 	}
-	else if(token.compare("write"))
+	else if(token.substr(0,5) ==("write"))
 	{
 		write_stmt(token);
 	}
@@ -69,7 +85,7 @@ void statement(string &token)
 	{
 		error();
 	}
-	cout<<endl<<"Statement found"<<endl;
+	//cout<<endl<<"Statement found"<<endl;
 }
 ///////////////////////////////////////////////////////////////
 void if_stmt(string &token)
@@ -78,7 +94,7 @@ void if_stmt(string &token)
 	exp(token);
 	match(token,"then");
 	stmt_sequence(token);
-	if(token.compare("else"))
+	if(token.substr(0,4) ==("else"))
 	{
 		match(token,"else");
 		stmt_sequence(token);
@@ -118,10 +134,131 @@ void write_stmt(string &token)
 	cout<<endl<<"Write Statement found"<<endl;
 }
 //////////////////////////////////////////////////////////////
+void exp(string &token)
+{
+	simple_exp(token);
+	if(token.substr(0,1) ==("<")||(token.substr(0,1) ==("=")))
+	{
+		comparison_op(token);
+		simple_exp(token);
+	}
+	//cout<<endl<<"Expression found"<<endl;
+}
+////////////////////////////////////////////////////////////////
+void comparison_op(string &token)
+{
+	if(token.substr(0,1)==("<"))
+	{
+		match(token,"<");
+	}
+	else
+	{
+		match(token,"=");
+	}
+	//cout<<endl<<"Comparison Operator found"<<endl;
+}
+///////////////////////////////////////////////////////////////////
+void simple_exp(string &token)
+{
+	term(token);
+	while(token.substr(0,1)==("+")||token.substr(0,1)==("-"))
+	{
+		addop(token);
+		term(token);
+	}
+	//cout<<endl<<"Simple Expression found"<<endl;
+}
+//////////////////////////////////////////////////////////////////
+void addop(string &token)
+{
+	if(token.substr(0,1)==("+"))
+	{
+		match(token,"+");
+	}
+	else
+	{
+		match(token,"-");
+	}
+	//cout<<endl<<"Add Operator found"<<endl;
+}
+//////////////////////////////////////////////////////////////////
+void term(string &token)
+{
+	factor(token);
+	while(token.substr(0,1)==("*")||token.substr(0,1)==("/"))
+	{
+		mulop(token);
+		factor(token);
+	}
+	//cout<<endl<<"Term found"<<endl;
+}
+//////////////////////////////////////////////////////////////////
+void mulop(string &token)
+{
+	if(token.substr(0,1)==("*"))
+	{
+		match(token,"*");
+	}
+	else
+	{
+		match(token,"/");
+	}
+	//cout<<endl<<"Multiplication Operator found"<<endl;
+}
+///////////////////////////////////////////////////////////////////
+void factor(string &token)
+{
+	if(token.substr(0,1)==("("))
+	{
+		match(token,"(");
+		exp(token);
+		match(token,")");
+	}
+	else if(token.substr(0,6)==("number"))
+	{
+		match(token,"number");
+	}
+	else if(token.substr(0,10)==("identifier"))
+	{
+		match(token,"identifier");
+	}
+	else
+	{
+		error();
+	}
+	//cout<<endl<<"Factor found"<<endl;
+}
+///////////////////////////////////////////////////////////////
+void remove_spaces(string &input)
+{
+	string output = "";
+	for(int i=0 ; i<input.size();i++)
+	{
+		if(input.substr(i,1) != " " && input.substr(i,1) !="\n" && input.substr(i,1) !="\t" && input.substr(i,1) !="\r")
+		{
+			output += input.substr(i,1);
+		}
+	}
+	input = output;
+}
+///////////////////////////////////////////////////////////////
+
 
 void main()
 {
-	string h = "hussein";
-	match(h,"h");
+	ifstream myfile ("tiny_sample_code.txt");
+	freopen("scanner_output.txt","w",stdout);
+	string line;
+	string input = "";
+	if (myfile.is_open())
+	{
+		while ( getline (myfile,line) )
+		{
+		  input += line;;
+		}
+		myfile.close();
+	}
+	remove_spaces(input);
+	program(input);
 }
 

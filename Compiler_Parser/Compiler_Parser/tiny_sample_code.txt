@@ -1,4 +1,4 @@
-read identifier;{input an integer}
+read identifier;
 
 
 if number<identifier then 
