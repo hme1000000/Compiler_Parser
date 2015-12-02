@@ -155,6 +155,10 @@ void scan(string input)
 					{
 						cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
 					}
+					else
+					{
+						cout<<endl<<"Syntax Error"<<endl;
+					}
 				}
 				state = START;
 				scanned = "";
