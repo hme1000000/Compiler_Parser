@@ -12,12 +12,13 @@ using namespace std;
 #define DONE 5
 
 
-void scan(string input)
+string scan(string input)
 {
 	input += '.';
 	int state = START;
 	int previous;
 	string scanned = "";
+	string output;
 	int i = 0;
 	while(i < input.length())
 	{
@@ -125,11 +126,13 @@ void scan(string input)
 						||scanned ==(")")||scanned ==("=")||scanned ==("<")||scanned ==(";"))
 					{
 						cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
+						output += scanned;
 					}
 				}
 				if(previous == INNUM)
 				{
 					cout<<endl<<" ("<<scanned<<") : (number)"<<endl;
+					output += "number";
 				}
 				if(previous == INID)
 				{
@@ -137,23 +140,27 @@ void scan(string input)
 						||scanned ==("until")||scanned ==("read")||scanned ==("write"))
 					{
 						cout<<endl<<" ("<<scanned<<") : (Reserved Word)"<<endl;
+						output += scanned;
 					}
 					else
 						{
 						cout<<endl<<" ("<<scanned<<") : (Identifier)"<<endl;
+						output += "identifier";
 					}
 				}
 				if(previous == INASSIGN)
 				{
 					if(scanned == ":=")
 					{
-					cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
+						cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
+						output += scanned;
 					}
 			
 					else if (scanned == ("+")||scanned ==("-")||scanned ==("*")||scanned ==("/")||scanned ==("(")
 						||scanned ==(")")||scanned ==("=")||scanned ==("<")||scanned ==(";"))
 					{
 						cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
+						output += scanned;
 					}
 					else
 					{
@@ -172,7 +179,7 @@ void scan(string input)
 		}		
 		
 	}
-	return;
+	return output;
 }
 
 int main()
@@ -189,5 +196,6 @@ int main()
 		}
 		myfile.close();
 	}
-	scan(input);
+	string output = scan(input);
+	cout<<endl<<output<<endl;
 }

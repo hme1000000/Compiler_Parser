@@ -1,25 +1,28 @@
-read identifier;{input an integer}
+{sample program in Tiny language- computes factorial}
 
 
-if number<identifier then 
+read x;{input an integer}
 
 
-	identifier:=number;
+if0<x then {don't compute if x<=0}
+
+
+	fact:=1;
 
 
 	repeat
 
 
-		identifier:=identifier*identifier;
+		fact:=fact*x;
 
 
-		identifier:=identifier-number
+		x:=x-1
 
 
-	until identifier=number;
+	until x=0;
 
 
-	write identifier
+	write fact{output factorial of x}
 
 
 end

@@ -47,8 +47,6 @@
 
  (1) : (number)
 
- (;) : (Special Symbol)
-
  (until) : (Reserved Word)
 
  (x) : (Identifier)
@@ -64,3 +62,5 @@
  (fact) : (Identifier)
 
  (end) : (Reserved Word)
+
+readidentifier;ifnumber<identifierthenidentifier:=number;repeatidentifier:=identifier*identifier;identifier:=identifier-numberuntilidentifier=number;writeidentifierend
