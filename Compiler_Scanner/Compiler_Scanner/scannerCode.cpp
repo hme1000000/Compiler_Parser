@@ -12,7 +12,7 @@ using namespace std;
 #define DONE 5
 
 
-string scan(string input)
+string scan(string &input)
 {
 	input += '.';
 	int state = START;
@@ -26,8 +26,9 @@ string scan(string input)
 		{
 		case START:
 			{
-				if(input.substr(i,1) == " ")
+				if(input.substr(i,1) == " " ||input.substr(i,1) == "\n"||input.substr(i,1) == "\t"||input.substr(i,1) == "\r")
 				{
+					output += input.substr(i,1);
 					state = START;
 				}
 				else if((input.substr(i,1) >= "0" && input.substr(i,1) <= "9"))
@@ -125,13 +126,13 @@ string scan(string input)
 					if (scanned == ("+")||scanned ==("-")||scanned ==("*")||scanned ==("/")||scanned ==("(")
 						||scanned ==(")")||scanned ==("=")||scanned ==("<")||scanned ==(";"))
 					{
-						cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
+						//cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;						
 						output += scanned;
 					}
 				}
 				if(previous == INNUM)
 				{
-					cout<<endl<<" ("<<scanned<<") : (number)"<<endl;
+					//cout<<endl<<" ("<<scanned<<") : (number)"<<endl;
 					output += "number";
 				}
 				if(previous == INID)
@@ -139,12 +140,13 @@ string scan(string input)
 					if(scanned == ("if")||scanned ==("then")||scanned ==("else")||scanned ==("end")||scanned ==("repeat")
 						||scanned ==("until")||scanned ==("read")||scanned ==("write"))
 					{
-						cout<<endl<<" ("<<scanned<<") : (Reserved Word)"<<endl;
+						//cout<<endl<<" ("<<scanned<<") : (Reserved Word)"<<endl;
 						output += scanned;
+						//input.replace(input.find(scanned,i),6,"number");
 					}
 					else
 						{
-						cout<<endl<<" ("<<scanned<<") : (Identifier)"<<endl;
+						//cout<<endl<<" ("<<scanned<<") : (Identifier)"<<endl;
 						output += "identifier";
 					}
 				}
@@ -152,19 +154,20 @@ string scan(string input)
 				{
 					if(scanned == ":=")
 					{
-						cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
+						//cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
 						output += scanned;
 					}
 			
 					else if (scanned == ("+")||scanned ==("-")||scanned ==("*")||scanned ==("/")||scanned ==("(")
 						||scanned ==(")")||scanned ==("=")||scanned ==("<")||scanned ==(";"))
 					{
-						cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
+						//cout<<endl<<" ("<<scanned<<") : (Special Symbol)"<<endl;
 						output += scanned;
 					}
 					else
 					{
-						cout<<endl<<"Syntax Error"<<endl;
+						//cout<<endl<<"Syntax Error"<<endl;
+						output += "Syntax Error";
 					}
 				}
 				state = START;

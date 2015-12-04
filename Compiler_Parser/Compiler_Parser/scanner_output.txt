@@ -1,16 +1,2 @@
 
-Read Statement found
-
-Assignment Statement found
-
-Assignment Statement found
-
-Assignment Statement found
-
-repeat Statement found
-
-Write Statement found
-
-If Statement found
-
-Program found
+read identifier;ifnumber<identifier then 	identifier:=number;	repeat		identifier:=identifier*identifier;		identifier:=identifier-number	until identifier=number;	write identifierend

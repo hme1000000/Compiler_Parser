@@ -246,8 +246,8 @@ void remove_spaces(string &input)
 
 void main()
 {
-	ifstream myfile ("tiny_sample_code.txt");
-	freopen("scanner_output.txt","w",stdout);
+	ifstream myfile ("scanner_output.txt");
+	freopen("parser_output.txt","w",stdout);
 	string line;
 	string input = "";
 	if (myfile.is_open())

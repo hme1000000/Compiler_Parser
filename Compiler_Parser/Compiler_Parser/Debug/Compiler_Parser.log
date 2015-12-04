@@ -1,4 +1,4 @@
-﻿Build started 12/2/2015 11:33:26 PM.
+﻿Build started 12/4/2015 3:28:50 PM.
      1>Project "C:\Users\Hussein\Documents\GitHub\Compiler_Parser\Compiler_Parser\Compiler_Parser\Compiler_Parser.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Compiler_Parser.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -21,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.98
+Time Elapsed 00:00:00.83
